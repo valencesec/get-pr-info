@@ -1,0 +1,12 @@
+name: 'get-pr-info'
+description: 'A GitHub Action that get last commit, body and author in current pull-request'
+inputs:
+  token:
+    description: 'A token with access to your repository scoped in as a secret'
+    required: true
+outputs:
+  info:
+    description: 'info in pr'
+runs:
+  using: 'node12'
+  main: 'index.js'
