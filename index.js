@@ -21,9 +21,18 @@ async function main() {
       pull_number: pr.number,
     })
 
-    const pr_info = {"data":[{"body":pr.body, "commit":commits.data[commits.data.length-1]}]}
-    
-    core.setOutput('info', JSON.stringify(pr_info.data))
+    const {data: pullRequest} = await octokit.pulls.get({
+      owner: repo.owner.login,
+      repo: repo.name,
+      pull_number: pr.number,
+    });
+
+    const body = {"data":[{"body":pr.body}]}
+    const title = {"data":[{"title": pullRequest.title}]}
+
+    core.setOutput('body', JSON.stringify(body.data))
+    core.setOutput('title', JSON.stringify(title.data))
+    core.setOutput('commits', JSON.stringify(commits.data))
   } catch (error) {
     core.setFailed(error.message)
   }

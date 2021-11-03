@@ -5,8 +5,12 @@ inputs:
     description: 'A token with access to your repository scoped in as a secret'
     required: true
 outputs:
-  info:
-    description: 'info in pr'
+  body:
+    description: 'body in pr'
+  title:
+    description: 'title of pr'
+  commits:
+    description: 'commits in pr'
 runs:
   using: 'node12'
   main: 'index.js'
