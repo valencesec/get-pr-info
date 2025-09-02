@@ -32,6 +32,7 @@ async function main() {
 
     core.setOutput('body', JSON.stringify(body.data))
     core.setOutput('title', JSON.stringify(title.data))
+    core.setOutput('commits', JSON.stringify(commits.data))
   } catch (error) {
     core.setFailed(error.message)
   }

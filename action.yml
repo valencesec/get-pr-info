@@ -9,6 +9,8 @@ outputs:
     description: 'body in pr'
   title:
     description: 'title of pr'
+  commits:
+    description: 'commits in pr'
 runs:
   using: 'node12'
   main: 'index.js'
